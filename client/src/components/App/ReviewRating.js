@@ -20,7 +20,6 @@ const ReviewRating = (props) => {
             label="Select a rating"
             id="review-rating"
             onChange={props.handleRatingChange}
-            sx={{ backgroundColor: 'white'}}
           >
             <FormControlLabel value="1" control={<Radio />} label="1" />
             <FormControlLabel value="2" control={<Radio />} label="2" />

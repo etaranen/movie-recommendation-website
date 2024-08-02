@@ -10,8 +10,14 @@ import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 
 
-const Review = (props) => {
+const Reviews = (props) => {
   const [userID, setUserID] = React.useState(1)
+
+  React.useEffect(() => {
+    if (props.userActive.username) {
+      setUserID(props.userActive.userID);
+    }
+  }, [props.userActive]);
 
   // List of movies
   const [movies, setMovies] = React.useState([]);
@@ -144,14 +150,13 @@ const Review = (props) => {
             sx={{
               display: "flex",
               justifyContent: "center",
-              border: "2px solid grey",
               borderRadius: "25px",
               padding: 2,
-              mb: 2,
-              backgroundColor: 'white'
+              fontFamily:'Roboto', 
+              color: '#405D72',
             }}
           >
-            <Typography variant="h3">Review a Movie</Typography>
+            <Typography variant="h3" fontWeight= 'bold' sx={{letterSpacing: 2}}>REVIEW A MOVIE</Typography>
           </Box>
           <Grid container spacing={2} alignItems="center">
             {/* Movie */}
@@ -220,4 +225,4 @@ const Review = (props) => {
   );
 };
 
-export default Review;
+export default Reviews;

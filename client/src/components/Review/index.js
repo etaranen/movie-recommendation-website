@@ -7,7 +7,8 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Button from '@mui/material/Button';
 
-const Review = () => {
+
+const Review = (props) => {
     const navigate = useNavigate();
     return (
         <div>
@@ -17,14 +18,18 @@ const Review = () => {
                         <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: '#F7E7DC', fontFamily:'Roboto' }}>
                             MOVIE MANIA
                         </Typography>
-                        <Button onClick={() => navigate('/')} sx={{ color: '#F7E7DC', fontFamily:'Roboto' }}>Home</Button>
-                        <Button onClick={() => navigate('/Search')} sx={{ color: '#F7E7DC', fontFamily:'Roboto' }}>Search</Button>
-                        <Button sx={{ color: '#F7E7DC', backgroundColor: '#758694', fontFamily:'Roboto' }}>Review</Button>
-                        <Button onClick={() => navigate('/MyPage')} sx={{ color: '#F7E7DC', fontFamily:'Roboto' }}>Account</Button>
+                        <Button id="nav-landing" onClick={() => navigate('/')} sx={{ color: '#F7E7DC', fontFamily:'Roboto' }}>Home</Button>
+                        <Button id="nav-search" onClick={() => navigate('/Search')} sx={{ color: '#F7E7DC', fontFamily:'Roboto' }}>Search</Button>
+                        <Button id="nav-review" sx={{ color: '#F7E7DC', backgroundColor: '#758694', fontFamily:'Roboto' }}>Review</Button>
+                        {props.userActive.username ? (
+                            <Button id="nav-myPage" onClick={() => navigate('/MyPage')} sx={{ color: '#F7E7DC', fontFamily:'Roboto' }}>Account</Button>
+                        ):(
+                            <Button id="nav-login" onClick={() => navigate('/Login')} sx={{ color: '#F7E7DC', fontFamily:'Roboto' }}>Login</Button>
+                        )}
                     </Toolbar>
                 </AppBar>
             </Box>
-          <Reviews/>
+          <Reviews userActive={props.userActive}/>
         </div> 
       );
     };
