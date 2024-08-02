@@ -150,4 +150,5 @@ const MyPage = (props) => {
         </div>
     )
 }
+
 export default MyPage;
